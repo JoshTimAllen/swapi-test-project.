@@ -39,6 +39,7 @@ function App() {
   var [breadcrumbPath,setbreadcrumbpath] = useState(<Breadcrumb crumbName='Select a card'/>);
 
   GetPeople();
+  /// Gets the main data from the api
   function GetPeople(){
     if(People!=""){return}
     const request = new XMLHttpRequest();
@@ -66,6 +67,9 @@ function App() {
       request.setRequestHeader("Content-Type", "application/json");
       request.send();
   }
+  ////////////////////////////////////////////////
+
+  /// HTTP Get Request
   function GetHttp(url  = "", callback){
     const request = new XMLHttpRequest();
     request.onload = function() {
@@ -75,7 +79,7 @@ function App() {
       request.setRequestHeader("Content-Type", "application/json");
       request.send();
   }
-
+/// Displays all cards in the displayResults  array
   function  DisplayAllCards(){
     breadcrumbPath = ( <Breadcrumb crumbName='Select a card'   func={()=>{}}  displayArrow = { true  }  />);
     setbreadcrumbpath(()=>[breadcrumbPath]);
@@ -86,12 +90,13 @@ function App() {
     }
     document.getElementById ('SearchArea').style.display = 'flex';
   }
-
+  //// Displays one card
   function  DisplayCard(data){
      var card =  render(ReactDOM.createPortal(<Card person = {data} fullDisplay= { false} func={()=>{DisplayCardFullDetails(data)}}/>, document.getElementById ('CardsContainer')));
     allCards.push(card);
   }
-
+  
+  //// Dispays card with full details
   function DisplayCardFullDetails(data){
     ClearCards();
     var card =  render(ReactDOM.createPortal(<Card person = {data} fullDisplay= { true } func={()=>{ }}/>, document.getElementById ('CardsContainer')));
@@ -100,12 +105,12 @@ function App() {
     setbreadcrumbpath(()=>[breadcrumbPath]);
     document.getElementById ('SearchArea').style.display = 'none';
   }
-
+  /// Clears all cards
   function ClearCards(){    
     allCards = [];
     document.getElementById ('CardsContainer').innerHTML  =  "";
   }
-  
+  /// Searches for a card with the API
 function Search(event){
     if(event.key === 'Enter'){
     var SearchString = document.getElementById('SearchBar').value;
@@ -115,6 +120,7 @@ function Search(event){
     });
   }
 }
+//// Switches to and from Ascdending order
     function SwitchAsceding(value){
       Ascending = value;
       if(!Ascending){        
@@ -128,8 +134,9 @@ function Search(event){
     SortResults(operation);
   }
   
-  
+  /// Operation defines which sorting to use
 var operation = 0;
+  //// Function to sort results
   function SortResults(){
     operation = parseInt(document.getElementById('sortSelect').value);
     console.log(operation);

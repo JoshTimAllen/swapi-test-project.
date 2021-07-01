@@ -8,6 +8,8 @@ import CardDetail from './CardDetail';
 import React, {Component, useState} from 'react';
 import { render } from '@testing-library/react';
 
+
+
 class Card extends Component {  
     constructor(props) {
         super(props)
@@ -19,7 +21,6 @@ class Card extends Component {
             func :  ()=>{}
         }
     }
-    static homeWorld  = '';
     componentDidMount() {
         this.GetSpecies();
         this.GetHttp(this.props.person.homeworld,(data)=>{
@@ -27,7 +28,7 @@ class Card extends Component {
                  homeWorld: JSON.parse(data).name
             });
         });
-        
+        /// Loops through the vehicles Array and gets the name value with the API
         for(var c = 0; c < this.props.person.vehicles.length; c++){
             this.GetHttp(this.props.person.vehicles[c],(data)=>{
                 var value  = JSON.parse(data).name;
@@ -39,7 +40,8 @@ class Card extends Component {
                 }); 
             }
             });
-        }
+        }        
+        /// Loops through the starships Array and gets the name value with the API
         for(var c = 0; c < this.props.person.starships.length; c++){
             this.GetHttp(this.props.person.starships[c],(data)=>{
                 var value  = JSON.parse(data).name;
@@ -53,10 +55,10 @@ class Card extends Component {
             });
         }
     }
+    /// Gets the species using the API
     GetSpecies(){        
         if(this.props.person.species.length>0){
-            this.GetHttp(this.props.person.species[0],(data)=>{
-                
+        this.GetHttp(this.props.person.species[0],(data)=>{                
         this.setState({
             species: JSON.parse(data).name
         });
@@ -68,6 +70,7 @@ class Card extends Component {
             });
         }    
     }
+     /// HTTP Get Request
     GetHttp(url  = "", callback){
         const request = new XMLHttpRequest();
         request.onload = function() {
@@ -77,7 +80,7 @@ class Card extends Component {
           request.setRequestHeader("Content-Type", "application/json");
           request.send();
       }
-      
+      /// Wrapper for the function passed in the props
     func(){
         this.props.func();
     }
