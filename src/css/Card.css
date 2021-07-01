@@ -18,6 +18,8 @@
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
       color: white;
+      
+    cursor: pointer;
   }
   .CardHeader img{
     padding: 15px;

@@ -100,10 +100,10 @@ class Card extends Component {
         }
         if(!fullDisplay){ }
         return (
-            <div className="Card">
+            <div className="Card" onClick={()=>{ this.func()}}>
                 <div className='CardHeader'>
                     <img src={CardSvg}></img>
-                   <h3 className='CardName' onClick={()=>{ this.func()}}> {this.props.person.name}</h3> 
+                   <h3 className='CardName' > {this.props.person.name}</h3> 
                 </div>
                 <div className='CardBody'>
                     <div className='CardBodyHeader'>
