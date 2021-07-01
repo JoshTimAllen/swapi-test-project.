@@ -1,0 +1,177 @@
+*{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+}
+ header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    border-bottom: 2px solid rgba(184, 184, 184, 184);
+    margin-bottom: 30px;
+ }
+ .HeaderLeft{
+    flex: 1;
+ }
+ .HeaderCentre{
+    flex: 3;
+    text-align: center;
+ }
+ .HeaderCentre h1 {
+    flex:3;
+    font-family: Roboto;
+    text-align: center;
+    flex-grow: 0;
+ }
+ .HeaderCentre h1 span{   
+    font-weight: 800;
+    font-size:  20px;
+ }
+ .HeaderRight{
+    flex: 1;
+    align-items: flex-end;
+ }
+body{
+  background-color: rgb(229, 229, 229);
+}
+.BODY{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding-top: 50px;
+}
+.container{
+  width: 85%;
+}
+#SearchArea{
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.SearchBar {
+  height: 32px;
+  flex: 1;
+  background: #FFFFFF;
+  border-radius: 4px;
+  border:none;
+  color: black;
+}
+.SearchIcon{
+  cursor:pointer;
+  margin-left: -20px;
+}
+.bttn{
+  border:  none;
+  border-radius: 6px;
+  color: black;
+  display: flex;
+  align-items: flex-start;
+  padding: 8px 12px;
+  background: #FFFFFF;
+  border-radius: 4px;
+}
+.bttn img{
+  stroke: black    !important;
+}
+section{
+  width: 100% !important;
+}
+.Breadcrumb{
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.crumb{
+  display: inline;
+}
+.vector{  
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.crumb-name {
+  color: rgba(117,117,117,1);
+}
+
+
+select{
+  border: 1px solid #B8B8B8;
+  border-radius: 4px;
+  height: 32px;
+  
+  outline:0;
+  box-shadow:none;
+  background: white;
+  background-image: none;
+  flex: 1;
+  color:#3B3B3B;
+  cursor:pointer;
+}
+select::-ms-expand {
+  display: none;
+}
+.Sorting {
+  position: relative;
+  display: flex;
+  line-height: 3;
+  background: white;
+  overflow: hidden;
+  border-radius: .25em;
+  width: 139px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.Sorting::after {
+  content: url('../Assets/Vector2.svg');
+  color: white;
+  position: absolute;
+  top: -8px;
+  right: 0;
+  padding: 0 1em;
+  background: #B8B8B8;
+  cursor:pointer;
+  border-radius: 2px;
+  pointer-events:none;
+}
+
+.OrderSelection{
+  border: 1px solid #B8B8B8;
+  border-radius: 4px;
+  height: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100px;
+}
+.OrderSelection a{  
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor:pointer;
+  height: 100%;
+}
+#ASC-Button{
+  background-color: #B8B8B8;
+}
+#DESC-Button{
+  background-color: #FFFFFF;
+}
+
+@media (max-width:1080px){
+  #SearchArea{
+  /*  display: grid !important;
+    grid-template: 
+    'sb sb sb'
+    'tx sort order x';*/
+  }
+  .SearchBar{
+    grid-area: sb;
+  }
+  .SortContainer{
+    grid-area: sd;
+    display: block !important;
+  }
+  .OrderSelection{
+    grid-area: order;
+  }
+}

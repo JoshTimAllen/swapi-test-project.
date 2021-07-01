@@ -1,0 +1,92 @@
+
+.CardsContainer{
+    display: grid;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+  }
+  .Card{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    max-width: 330px;
+  }
+  .CardHeader{
+      background-color: rgba(150, 150,150 , 1);
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      color: white;
+  }
+  .CardHeader img{
+    padding: 15px;
+  }
+  .CardHeader img path{
+    stroke:  #FFFFFF;
+  }
+  .CardName {  
+    position: relative;
+    left: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 24px ;
+  }
+  .CardBody{
+    background-color: white;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 20px;
+  }
+  .CardBody span{  
+    color: #3B3B3B;
+  }
+  .CardBodyHeader{
+    display: flex;
+    padding-bottom: 5px;
+    border-bottom: 2px solid rgba(212,212,212,1);
+    margin-bottom: 15px;
+    justify-content: space-between;
+  }
+  .detail{
+    font-size: 12px;
+    background: #EDEDED;
+    border-radius: 4px;
+    padding-left: 8px;
+    padding-right: 12px;
+    padding-top: 1px;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:   7px;
+  }
+  .detail img{
+    padding-right: 4px;
+  }
+  .detail-value{
+    color: #3B3B3B  !important;
+    font-size:  14px;
+  }
+  .detailName{
+    font-size: 10px;
+    padding-top: 2px;
+    color: #757575 !important;
+  }
+
+@media (max-width:1080px){
+  .CardsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .Card{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    max-width:     456px;
+    width: 80%;
+  }
+}
